@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lumière Spa & Wellness | Premium Spa Services in Nairobi</title>
+<meta name="description" content="Experience luxury spa treatments, professional massages, and wellness services at Lumière Spa. Book your appointment today via WhatsApp.">
+<meta name="keywords" content="spa nairobi, massage nairobi, facial treatment kenya, wellness center kilimani, luxury spa kenya, body scrub nairobi, aromatherapy nairobi, hot stone massage, deep tissue massage, swedish massage, spa booking whatsapp, best spa nairobi">
+<meta name="author" content="SalonFlow Studio">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lumiere-spa.co.ke">
+<meta property="og:title" content="Lumière Spa & Wellness | Premium Spa Services in Nairobi">
+<meta property="og:description" content="Experience luxury spa treatments, professional massages, and wellness services at Lumière Spa. Book via WhatsApp.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&w=1200&q=80">
+<meta property="og:locale" content="en_KE">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://lumiere-spa.co.ke">
+<meta property="twitter:title" content="Lumière Spa & Wellness | Premium Spa Services in Nairobi">
+<meta property="twitter:description" content="Experience luxury spa treatments, professional massages, and wellness services at Lumière Spa. Book via WhatsApp.">
+<meta property="twitter:image" content="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&w=1200&q=80">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Lucide Icons -->
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                fontFamily: {
+                    sans: ['Inter', 'sans-serif'],
+                },
+                colors: {
+                    spa: {
+                        primary: '#B8956B',
+                        primaryDark: '#9A7B56',
+                        primaryLight: '#D4B896',
+                        cream: '#F5EDE4',
+                        creamLight: '#FAF6F1',
+                        dark: '#1C1917',
+                        charcoal: '#44403C',
+                        muted: '#78716C',
+                        border: '#E7DDD3',
+                        white: '#FFFFFF',
+                    }
+                }
+            }
+        }
+    }
+</script>
+
+<style>
+    html { scroll-behavior: smooth; }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #F5EDE4; }
+    ::-webkit-scrollbar-thumb { background: #B8956B; border-radius: 3px; }
+
+    /* Glass Effects */
+    .glass {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+    }
+
+    .glass-dark {
+        background: rgba(28, 25, 23, 0.75);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* Image Hover - Scale Only */
+    .img-hover {
+        transition: transform 0.6s ease;
+    }
+    .img-hover:hover {
+        transform: scale(1.05);
+    }
+
+    /* Service Card - Simple Lift Only */
+    .service-card {
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .service-card:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 30px 60px -15px rgba(0,0,0,0.15);
+    }
+
+    /* Button Hover */
+    .btn-hover {
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+    .btn-hover:hover {
+        transform: translateY(-2px);
+    }
+
+    /* ===== SMOOTH SLIDING MARQUEE ===== */
+    @keyframes marquee-left {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+    }
+    @keyframes marquee-right {
+        0% { transform: translateX(-50%); }
+        100% { transform: translateX(0); }
+    }
+
+    .marquee-track {
+        display: flex;
+        gap: 2rem;
+        will-change: transform;
+    }
+
+    .marquee-left {
+        animation: marquee-left 30s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+    }
+    .marquee-right {
+        animation: marquee-right 30s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+    }
+
+    .marquee-left:hover,
+    .marquee-right:hover {
+        animation-play-state: paused;
+    }
+
+    ::selection {
+        background: #B8956B;
+        color: white;
+    }
+
+    /* Carousel */
+    .carousel-slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 1s ease;
+        pointer-events: none;
+    }
+    .carousel-slide.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+    .carousel-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    .carousel-dot.active {
+        background: white;
+        transform: scale(1.2);
+    }
+
+    /* Back to Top */
+    .back-to-top {
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+    .back-to-top.visible {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Nav Active */
+    .nav-pill {
+        transition: all 0.3s ease;
+    }
+    .nav-pill.active {
+        background: #B8956B;
+        color: white;
+    }
+
+    .section-breathe {
+        padding-top: 8rem;
+        padding-bottom: 8rem;
+    }
+
+    .testimonial-card {
+        border: 1px solid rgba(184, 149, 107, 0.08);
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(10px);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .testimonial-card::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background: linear-gradient(90deg, rgba(245,237,228,0) 85%, rgba(245,237,228,0.6) 100%);
+        pointer-events: none;
+        opacity: 0.5;
+    }
+
+    .testimonial-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1);
+    }
+
+    .price-tag {
+        letter-spacing: 0.08em;
+        font-variant-numeric: tabular-nums;
+    }
+
+    .heading-editorial {
+        font-weight: 300;
+        letter-spacing: -0.03em;
+        line-height: 1.1;
+    }
+
+    /* Mobile Menu - Full Screen */
+    #mobile-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 100vh;
+        height: 100dvh;
+        width: 100%;
+        z-index: 40;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(30px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.4s ease;
+    }
+    #mobile-menu.open {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    /* Gallery Fix */
+    .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 24px;
+    }
+    .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        min-height: 100%;
+    }
+
+    .gradient-text {
+        background: linear-gradient(135deg, #B8956B 0%, #D4B896 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .form-input {
+        transition: all 0.3s ease;
+    }
+    .form-input:focus {
+        box-shadow: 0 0 0 4px rgba(184, 149, 107, 0.1);
+        background: white;
+    }
+
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+        background: #FAF6F1;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #B8956B;
+        border-radius: 4px;
+    }
+
+    /* ===== RESPONSIVE FIXES ===== */
+    @media (max-width: 1023px) {
+        .section-breathe {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .section-breathe {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+        }
+        .heading-editorial {
+            font-size: 2.25rem !important;
+            line-height: 1.15 !important;
+        }
+        .testimonial-card {
+            width: 320px !important;
+            padding: 1.5rem !important;
+        }
+        .marquee-track {
+            gap: 1rem;
+        }
+        .service-card:hover {
+            transform: translateY(-6px);
+        }
+    }
+
+    @media (max-width: 639px) {
+        .heading-editorial {
+            font-size: 1.875rem !important;
+        }
+        .testimonial-card {
+            width: 280px !important;
+            padding: 1.25rem !important;
+        }
+    }
+</style>
+</head>
+<body class="font-sans text-spa-dark bg-spa-cream antialiased overflow-x-hidden">
+
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/254712345678?text=Hello%20Lumière%20Spa%20%26%20Wellness!%20I%20would%20like%20to%20book%20an%20appointment.%20Please%20let%20me%20know%20your%20availability.%20Thank%20you!"
+    target="_blank"
+    class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 bg-[#25D366] text-white p-3 sm:p-4 rounded-full shadow-lg flex items-center gap-2 sm:gap-3 btn-hover"
+    aria-label="Chat on WhatsApp">
+    <svg class="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+    <span class="text-xs sm:text-sm font-semibold whitespace-nowrap hidden sm:inline">Book Now</span>
+</a>
+
+<!-- Back to Top Button -->
+<button id="backToTop" class="back-to-top fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-50 bg-spa-dark text-white p-2.5 sm:p-3 rounded-full shadow-lg hover:bg-spa-primary transition-colors duration-300 btn-hover" aria-label="Back to top">
+    <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+</button>
+
+<!-- Navigation -->
+<nav class="fixed top-0 left-0 right-0 z-50 px-4 sm:px-8 md:px-12 py-3 sm:py-4 bg-white/80 backdrop-blur-xl border-b border-spa-border/20" id="navbar">
+    <div class="flex items-center justify-between max-w-7xl mx-auto">
+        <a href="#" class="flex items-center gap-2">
+            <div class="w-7 h-7 sm:w-8 sm:h-8 bg-spa-primary rounded-lg flex items-center justify-center text-white">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
+            </div>
+            <span class="font-bold text-base sm:text-lg tracking-tight text-spa-dark">Lumière</span>
+        </a>
+
+        <div class="hidden md:flex items-center bg-spa-cream/50 rounded-full px-2 py-1.5 border border-spa-border/30">
+            <a href="#home" class="nav-pill active px-4 lg:px-6 py-2 rounded-full text-sm font-medium" data-section="home">Home</a>
+            <a href="#services" class="nav-pill px-4 lg:px-6 py-2 rounded-full text-spa-muted text-sm font-medium hover:text-spa-dark" data-section="services">Services</a>
+            <a href="#about" class="nav-pill px-4 lg:px-6 py-2 rounded-full text-spa-muted text-sm font-medium hover:text-spa-dark" data-section="about">About</a>
+            <a href="#contact" class="nav-pill px-4 lg:px-6 py-2 rounded-full text-spa-muted text-sm font-medium hover:text-spa-dark" data-section="contact">Contact</a>
+        </div>
+
+        <a href="https://wa.me/254712345678?text=Hello%20Lumière%20Spa%20%26%20Wellness!%20I%20would%20like%20to%20book%20an%20appointment.%20Please%20let%20me%20know%20your%20availability.%20Thank%20you!"
+            target="_blank"
+            class="hidden md:inline-flex items-center gap-2 bg-spa-primary text-white px-5 lg:px-6 py-2.5 lg:py-3 rounded-full text-sm font-medium hover:bg-spa-primaryDark shadow-md btn-hover">
+            <i data-lucide="calendar" class="w-4 h-4"></i>
+            <span class="hidden lg:inline">Book Appointment</span>
+            <span class="lg:hidden">Book</span>
+        </a>
+
+        <button id="mobile-menu-btn" class="md:hidden p-2 text-spa-dark btn-hover z-50 relative" aria-label="Menu">
+            <i data-lucide="menu" class="w-6 h-6 menu-icon"></i>
+            <i data-lucide="x" class="w-6 h-6 close-icon hidden"></i>
+        </button>
+    </div>
+</nav>
+
+<!-- Mobile Menu Overlay -->
+<div id="mobile-menu" class="md:hidden">
+    <div class="flex flex-col items-center gap-6 sm:gap-8 w-full px-8">
+        <a href="#home" class="block text-2xl sm:text-3xl font-light text-spa-dark hover:text-spa-primary">Home</a>
+        <a href="#services" class="block text-2xl sm:text-3xl font-light text-spa-dark hover:text-spa-primary">Services</a>
+        <a href="#about" class="block text-2xl sm:text-3xl font-light text-spa-dark hover:text-spa-primary">About</a>
+        <a href="#contact" class="block text-2xl sm:text-3xl font-light text-spa-dark hover:text-spa-primary">Contact</a>
+        <div class="pt-6 sm:pt-8 w-full max-w-xs">
+            <a href="https://wa.me/254712345678?text=Hello%20Lumière%20Spa%20%26%20Wellness!%20I%20would%20like%20to%20book%20an%20appointment.%20Please%20let%20me%20know%20your%20availability.%20Thank%20you!"
+                target="_blank"
+                class="flex items-center justify-center gap-2 bg-spa-primary text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-full text-base sm:text-lg font-medium w-full btn-hover">
+                <i data-lucide="calendar" class="w-5 h-5"></i>
+                Book via WhatsApp
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Hero Section -->
+<section id="home" class="px-4 sm:px-8 md:px-12 pb-8 sm:pb-12 pt-24 sm:pt-28 min-h-screen flex items-center">
+    <div class="grid lg:grid-cols-12 gap-4 sm:gap-6 items-start max-w-7xl mx-auto w-full">
+        <!-- Left Column -->
+        <div class="lg:col-span-3 space-y-4 sm:space-y-6 pt-2 sm:pt-4 order-2 lg:order-1">
+            <div class="space-y-3 sm:space-y-4">
+                <div class="flex items-center gap-2 mb-1 sm:mb-2">
+                    <span class="w-6 sm:w-8 h-[1px] bg-spa-primary"></span>
+                    <span class="text-spa-primary text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase">Est. 2016</span>
+                </div>
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-spa-dark leading-[1.1] tracking-tight heading-editorial">
+                    Luxury Care For<br>Body & Mind
+                </h1>
+                <p class="text-spa-muted text-xs sm:text-sm leading-relaxed max-w-xs" style="line-height: 1.8;">
+                    A refined spa experience where professional expertise meets comfort, calm, and thoughtful design.
+                </p>
+            </div>
+
+            <div class="flex items-center gap-2 sm:gap-3 flex-wrap">
+                <a href="https://wa.me/254712345678?text=Hello%20Lumière%20Spa!%20I'm%20interested%20in%20your%20services%20and%20pricing.%20Please%20share%20your%20service%20menu.%20Thank%20you!"
+                    target="_blank"
+                    class="inline-flex items-center gap-2 bg-spa-primary text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-medium hover:bg-spa-primaryDark shadow-lg btn-hover">
+                    View Pricing
+                </a>
+                <a href="https://wa.me/254712345678?text=Hello%20Lumière%20Spa!%20I'd%20like%20to%20know%20more%20about%20your%20team%20and%20expertise.%20Please%20share%20details.%20Thank%20you!"
+                    target="_blank"
+                    class="inline-flex items-center gap-2 bg-white text-spa-dark px-5 sm:px-6 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-medium border border-spa-border hover:border-spa-primary hover:bg-spa-cream btn-hover">
+                    Our Experts
+                </a>
+            </div>
+
+            <div class="flex gap-1.5 pt-1 sm:pt-2">
+                <span class="w-1.5 h-1.5 bg-spa-primary rounded-full"></span>
+                <span class="w-1.5 h-1.5 bg-spa-border rounded-full"></span>
+                <span class="w-1.5 h-1.5 bg-spa-border rounded-full"></span>
+            </div>
+
+            <div class="relative rounded-[16px] sm:rounded-[24px] overflow-hidden shadow-2xl group mt-2 sm:mt-4">
+                <img src="https://i.pinimg.com/736x/18/84/b1/1884b171fcecddf037a6ac8ae8c21e51.jpg"
+                    alt="Spa Experience"
+                    class="w-full h-44 sm:h-56 object-cover img-hover">
+
+                <div class="absolute top-3 sm:top-4 left-3 sm:left-4 glass rounded-full px-3 sm:px-4 py-1.5 sm:py-2 flex items-center gap-2 shadow-lg">
+                    <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-spa-primary rounded-full"></span>
+                    <span class="text-[10px] sm:text-xs font-medium text-spa-dark">Total Relaxation</span>
+                </div>
+
+                <div class="absolute bottom-2 sm:bottom-3 left-2 sm:left-3 right-2 sm:right-3">
+                    <div class="glass-dark rounded-xl p-3 sm:p-4 text-white">
+                        <h4 class="font-semibold text-xs sm:text-sm mb-0.5 sm:mb-1">Body & Mind</h4>
+                        <p class="text-[10px] sm:text-xs text-white/60 leading-relaxed" style="line-height: 1.8;">Luxury spa experience designed for total relaxation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Center Column - Main Image Carousel -->
+        <div class="lg:col-span-6 relative order-1 lg:order-2">
+            <div class="relative rounded-[16px] sm:rounded-[24px] overflow-hidden shadow-2xl h-[360px] sm:h-[450px] md:h-[520px] lg:h-[600px]">
+                <div id="heroCarousel" class="relative w-full h-full">
+                    <div class="carousel-slide active">
+                        <img src="https://i.pinimg.com/1200x/12/f4/9a/12f49af3b787d3e2b46e135f08ef5eeb.jpg"
+                            alt="Spa Treatment"
+                            class="w-full h-full object-cover">
+                </div>
+                <div class="carousel-slide">
+                    <img src="https://i.pinimg.com/736x/3d/92/9e/3d929ee18e800df37d728dafc21d988f.jpg"
+                            alt="Relaxation Room"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://i.pinimg.com/1200x/06/7c/72/067c7295db6973164d4bf2de0b5886ef.jpg"
+                            alt="Massage Therapy"
+                            class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <div class="absolute top-3 sm:top-5 left-3 sm:left-5 flex gap-1.5 sm:gap-2 z-10">
+                    <div class="carousel-dot active" data-slide="0"></div>
+                    <div class="carousel-dot" data-slide="1"></div>
+                    <div class="carousel-dot" data-slide="2"></div>
+                </div>
+
+                <div class="absolute top-3 sm:top-5 right-3 sm:right-5 flex flex-col gap-1.5 sm:gap-2 items-end z-10">
+                    <div class="glass rounded-full px-3 sm:px-4 py-1.5 sm:py-2 shadow-lg">
+                        <span class="text-[10px] sm:text-xs font-medium text-spa-dark">Personalized Wellness</span>
+                    </div>
+                    <div class="glass rounded-full px-3 sm:px-4 py-1.5 sm:py-2 flex items-center gap-1.5 sm:gap-2 shadow-lg">
+                        <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-spa-primary rounded-full"></span>
+                        <span class="text-[10px] sm:text-xs font-medium text-spa-dark">Luxury Spa</span>
+                    </div>
+                </div>
+
+                <div class="absolute top-[22%] sm:top-[28%] left-[10%] sm:left-[15%] glass-dark rounded-full px-3 sm:px-4 py-1.5 sm:py-2 flex items-center gap-1.5 sm:gap-2 shadow-xl z-10">
+                    <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-spa-primary rounded-full"></span>
+                    <span class="text-[10px] sm:text-xs font-medium text-white">Expert Care</span>
+                </div>
+
+                <div class="absolute top-[15%] sm:top-[20%] right-2 sm:right-4 z-10 max-w-[160px] sm:max-w-[200px]">
+                    <div class="bg-spa-cream rounded-[16px] sm:rounded-[20px] p-4 sm:p-5 shadow-xl" style="opacity: 0; visibility: hidden">
+                        <div class="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+                            <div class="w-8 h-8 sm:w-10 sm:h-10 bg-spa-primary rounded-full flex items-center justify-center text-white">
+                                <i data-lucide="arrow-up-right" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+                            </div>
+                            <div class="w-px h-6 sm:h-8 bg-spa-border"></div>
+                        </div>
+                        <h2 class="text-2xl sm:text-3xl font-bold text-spa-dark leading-tight heading-editorial">
+                            Wellness<br>Refresh<br>Relax
+                        </h2>
+                    </div>
+                </div>
+
+                <!-- HIDDEN ON MOBILE / VISIBLE ON TABLET+ -->
+                <div class="absolute bottom-4 left-4 right-4 z-10 hidden sm:block">
+                    <div class="glass rounded-xl p-3 sm:p-4 flex items-end justify-between">
+                        <div class="space-y-1">
+                            <h4 class="font-bold text-sm sm:text-base text-spa-dark">Spa Wellness</h4>
+                            <p class="text-[10px] sm:text-xs text-spa-muted leading-relaxed max-w-[180px] sm:max-w-[220px]" style="line-height: 1.8;">Personalized wellness services in a calming space. Expert care combining relaxation and rejuvenation.</p>
+                        </div>
+                        <div class="flex gap-1.5 sm:gap-2 flex-shrink-0">
+                            <div class="bg-white rounded-full px-2.5 sm:px-3 py-1 sm:py-1.5 flex items-center gap-1 sm:gap-1.5 shadow-sm">
+                                <span class="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-spa-primary rounded-full"></span>
+                                <span class="text-[10px] sm:text-xs font-medium">Spa Experience</span>
+                            </div>
+                            <div class="bg-white rounded-full px-2.5 sm:px-3 py-1 sm:py-1.5 flex items-center gap-1 sm:gap-1.5 shadow-sm">
+                                <span class="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-spa-primary rounded-full"></span>
+                                <span class="text-[10px] sm:text-xs font-medium">Total Relaxation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="lg:col-span-3 space-y-4 sm:space-y-6 pt-2 sm:pt-4 flex flex-col order-3">
+            <div class="space-y-1">
+                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-spa-dark leading-[1.05] heading-editorial">
+                    Wellness<br>Refresh<br>Relax
+                </h2>
+            </div>
+
+            <div class="pt-2 sm:pt-4">
+                <p class="text-xs sm:text-sm text-spa-muted leading-relaxed" style="line-height: 1.8;">
+                    Step into a world of relaxation with tailored beauty and wellness services designed to refresh your body and uplift your mood.
+                </p>
+            </div>
+
+            <div class="mt-auto pt-6 sm:pt-8">
+                <div class="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-white rounded-2xl shadow-sm border border-spa-border/30">
+                    <div class="flex -space-x-2">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" class="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-white object-cover" alt="">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" class="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-white object-cover" alt="">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop" class="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-white object-cover" alt="">
+                    </div>
+                    <div class="text-[10px] sm:text-xs text-spa-muted">
+                        <span class="font-semibold text-spa-dark">10,000+</span> happy clients
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="px-4 sm:px-8 md:px-12 section-breathe bg-white">
+    <div class="max-w-6xl mx-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 mb-10 sm:mb-16">
+            <div class="space-y-3 sm:space-y-4">
+                <span class="text-spa-primary text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase">Our Services</span>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-spa-dark leading-tight heading-editorial">
+                    Curated For<br><span class="gradient-text">You</span>
+                </h2>
+            </div>
+            <p class="text-spa-muted text-xs sm:text-sm leading-relaxed max-w-md" style="line-height: 1.8;">
+                From therapeutic massages to rejuvenating facials, each service restores balance and enhances your natural beauty.
+            </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+            <!-- Service Card 1 -->
+            <div class="service-card bg-spa-cream rounded-[20px] sm:rounded-[24px] overflow-hidden group cursor-pointer">
+                <div class="relative h-48 sm:h-56 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=600&q=80" alt="Swedish Massage" class="w-full h-full object-cover img-hover">
+                    <div class="absolute top-3 sm:top-4 right-3 sm:right-4 glass rounded-full px-3 sm:px-4 py-1.5 sm:py-2">
+                        <span class="text-xs sm:text-sm font-semibold text-spa-dark price-tag">KSh 3,500</span>
+                    </div>
+                </div>
+                <div class="p-5 sm:p-8 space-y-2 sm:space-y-3">
+                    <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-spa-primary rounded-full"></span>
+                        <span class="text-[10px] sm:text-xs font-medium text-spa-muted tracking-wide uppercase">60 Minutes</span>
+                    </div>
+                    <h3 class="font-bold text-base sm:text-lg text-spa-dark">Swedish Massage</h3>
+                    <p class="text-spa-muted text-xs sm:text-sm leading-relaxed" style="line-height: 1.8;">Classic full-body massage using long, flowing strokes to improve circulation and promote deep relaxation.</p>
+                    <a href="https://wa.me/254712345678?text=Hello%20Lumière%20Spa!%20I%20would%20like%20to%20book%20a%20Swedish%20Massage.%20Please%20let%20me%20know%20your%20availability.%20Thank%20you!" target="_blank" class="inline-flex items-center gap-2 text-spa-primary font-semibold text-xs sm:text-sm pt-1 sm:pt-2 btn-hover">
+                        Book Now
+                        <span class="w-6 h-6 sm:w-7 sm:h-7 bg-spa-primary/10 rounded-full flex items-center justify-center group-hover:bg-spa-primary group-hover:text-white transition-colors">
+                            <i data-lucide="arrow-right" class="w-3 h-3 sm:w-3.5 sm:h-3.5"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service Card 2 -->
+            <div class="service-card bg-spa-cream rounded-[20px] sm:rounded-[24px] overflow-hidden group cursor-pointer">
+                <div class="relative h-48 sm:h-56 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&q=80" alt="Deep Tissue" class="w-full h-full object-cover img-hover">
+                    <div class="absolute top-3 sm:top-4 right-3 sm:right-4 glass rounded-full px-3 sm:px-4 py-1.5 sm:py-2">
+                        <span class="text-xs sm:text-sm font-semibold text-spa-dark price-tag">KSh 4,500</span>
+                    </div>
+                </div>
+                <div class="p-5 sm:p-8 space-y-2 sm:space-y-3">
+                    <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-spa-primary rounded-full"></span>
+                        <span class="text-[10px] sm:text-xs font-medium text-spa-muted tracking-wide uppercase">90 Minutes</span>
+                    </div>
+                    <h3 class="font-bold text-base sm:text-lg text-spa-dark">Deep Tissue Therapy</h3>
+                    <p class="text-spa-muted text-xs sm:text-sm leading-relaxed" style="line-height: 1.8;">Targeted pressure on chronic muscle tension. Ideal for athletes and those with persistent pain.</p>
+                    <a href="https://wa.me/254712345678?text=Hello%20Lumière%20Spa!%20I%20would%20like%20to%20book%20a%20Deep%20Tissue%20Therapy%20session.%20Please%20let%20me%20know%20your%20availability.%20Thank%20you!" target="_blank" class="inline-flex items-center gap-2 text-spa-primary font-semibold text-xs sm:text-sm pt-1 sm:pt-2 btn-hover">
+                        Book Now
+                        <span class="w-6 h-6 sm:w-7 sm:h-7 bg-spa-primary/10 rounded-full flex items-center justify-center group-hover:bg-spa-primary group-hover:text-white transition-colors">
+                            <i data-lucide="arrow-right" class="w-3 h-3 sm:w-3.5 sm:h-3.5"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service Card 3 -->
+            <div class="service-card bg-spa-cream rounded-[20px] sm:rounded-[24px] overflow-hidden group cursor-pointer">
+                <div class="relative h-48 sm:h-56 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1552693673-1bf958298935?auto=format&fit=crop&w=600&q=80" alt="Hot Stone" class="w-full h-full object-cover img-hover">
+                    <div class="absolute top-3 sm:top-4 right-3 sm:right-4 glass rounded-full px-3 sm:px-4 py-1.5 sm:py-2">
+                        <span class="text-xs sm:text-sm font-semibold text-spa-dark price-tag">KSh 5,000</span>
+                    </div>
+                </div>
+                <div class="p-5 sm:p-8 space-y-2 sm:space-y-3">
+                    <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-spa-primary rounded-full"></span>
+                        <span class="text-[10px] sm:text-xs font-medium text-spa-muted tracking-wide uppercase">75 Minutes</span>
+                    </div>
+                    <h3 class="font-bold text-base sm:text-lg text-spa-dark">Hot Stone Therapy</h3>
+                    <p class="text-spa-muted text-xs sm:text-sm leading-relaxed" style="line-height: 1.8;">Heated basalt stones melt away tension. A deeply soothing experience for body and mind.</p>
+                    <a href="https://wa.me/254712345678?text=Hello%20Lumière%20Spa!%20I%20would%20like%20to%20book%20a%20Hot%20Stone%20Therapy%20session.%20Please%20let%20me%20know%20your%20availability.%20Thank%20you!" target="_blank" class="inline-flex items-center gap-2 text-spa-primary font-semibold text-xs sm:text-sm pt-1 sm:pt-2 btn-hover">
+                        Book Now
+                        <span class="w-6 h-6 sm:w-7 sm:h-7 bg-spa-primary/10 rounded-full flex items-center justify-center group-hover:bg-spa-primary group-hover:text-white transition-colors">
+                            <i data-lucide="arrow-right" class="w-3 h-3 sm:w-3.5 sm:h-3.5"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service Card 4 -->
+            <div class="service-card bg-spa-cream rounded-[20px] sm:rounded-[24px] overflow-hidden group cursor-pointer">
+                <div class="relative h-48 sm:h-56 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=600&q=80" alt="Facial" class="w-full h-full object-cover img-hover">
+                    <div class="absolute top-3 sm:top-4 right-3 sm:right-4 glass rounded-full px-3 sm:px-4 py-1.5 sm:py-2">
+                        <span class="text-xs sm:text-sm font-semibold text-spa-dark price-tag">KSh 3,800</span>
+                    </div>
+                </div>
+                <div class="p-5 sm:p-8 space-y-2 sm:space-y-3">
+                    <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-spa-primary rounded-full"></span>
+                        <span class="text-[10px] sm:text-xs font-medium text-spa-muted tracking-wide uppercase">60 Minutes</span>
+                    </div>
+                    <h3 class="font-bold text-base sm:text-lg text-spa-dark">Luxury Facial</h3>
+                    <p class="text-spa-muted text-xs sm:text-sm leading-relaxed" style="line-height: 1.8;">Customized facial using premium organic products. Includes cleansing, exfoliation, and hydration.</p>
+                    <a href="https://wa.me/254712345678?text=Hello%20Lumière%20Spa!%20I%20would%20like%20to%20book%20a%20Luxury%20Facial.%20Please%20let%20me%20know%20your%20availability.%20Thank%20you!" target="_blank" class="inline-flex items-center gap-2 text-spa-primary font-semibold text-xs sm:text-sm pt-1 sm:pt-2 btn-hover">
+                        Book Now
+                        <span class="w-6 h-6 sm:w-7 sm:h-7 bg-spa-primary/10 rounded-full flex items-center justify-center group-hover:bg-spa-primary group-hover:text-white transition-colors">
+                            <i data-lucide="arrow-right" class="w-3 h-3 sm:w-3.5 sm:h-3.5"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service Card 5 -->
+            <div class="service-card bg-spa-cream rounded-[20px] sm:rounded-[24px] overflow-hidden group cursor-pointer">
+                <div class="relative h-48 sm:h-56 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=600&q=80" alt="Body Scrub" class="w-full h-full object-cover img-hover">
+                    <div class="absolute top-3 sm:top-4 right-3 sm:right-4 glass rounded-full px-3 sm:px-4 py-1.5 sm:py-2">
+                        <span class="text-xs sm:text-sm font-semibold text-spa-dark price-tag">KSh 2,800</span>
+                    </div>
+                </div>
+                <div class="p-5 sm:p-8 space-y-2 sm:space-y-3">
+                    <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-spa-primary rounded-full"></span>
+                        <span class="text-[10px] sm:text-xs font-medium text-spa-muted tracking-wide uppercase">45 Minutes</span>
+                    </div>
+                    <h3 class="font-bold text-base sm:text-lg text-spa-dark">Body Scrub</h3>
+                    <p class="text-spa-muted text-xs sm:text-sm leading-relaxed" style="line-height: 1.8;">Full-body exfoliation with natural sea salts and essential oils. Leaves skin silky smooth.</p>
+                    <a href="https://wa.me/254712345678?text=Hello%20Lumière%20Spa!%20I%20would%20like%20to%20book%20an%20Exfoliating%20Body%20Scrub.%20Please%20let%20me%20know%20your%20availability.%20Thank%20you!" target="_blank" class="inline-flex items-center gap-2 text-spa-primary font-semibold text-xs sm:text-sm pt-1 sm:pt-2 btn-hover">
+                        Book Now
+                        <span class="w-6 h-6 sm:w-7 sm:h-7 bg-spa-primary/10 rounded-full flex items-center justify-center group-hover:bg-spa-primary group-hover:text-white transition-colors">
+                            <i data-lucide="arrow-right" class="w-3 h-3 sm:w-3.5 sm:h-3.5"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service Card 6 -->
+            <div class="service-card bg-spa-cream rounded-[20px] sm:rounded-[24px] overflow-hidden group cursor-pointer">
+                <div class="relative h-48 sm:h-56 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80" alt="Aromatherapy" class="w-full h-full object-cover img-hover">
+                    <div class="absolute top-3 sm:top-4 right-3 sm:right-4 glass rounded-full px-3 sm:px-4 py-1.5 sm:py-2">
+                        <span class="text-xs sm:text-sm font-semibold text-spa-dark price-tag">KSh 4,000</span>
+                    </div>
+                </div>
+                <div class="p-5 sm:p-8 space-y-2 sm:space-y-3">
+                    <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-spa-primary rounded-full"></span>
+                        <span class="text-[10px] sm:text-xs font-medium text-spa-muted tracking-wide uppercase">75 Minutes</span>
+                    </div>
+                    <h3 class="font-bold text-base sm:text-lg text-spa-dark">Aromatherapy</h3>
+                    <p class="text-spa-muted text-xs sm:text-sm leading-relaxed" style="line-height: 1.8;">Essential oil blends tailored to your mood. A sensory journey for complete mental clarity.</p>
+                    <a href="https://wa.me/254712345678?text=Hello%20Lumière%20Spa!%20I%20would%20like%20to%20book%20an%20Aromatherapy%20Session.%20Please%20let%20me%20know%20your%20availability.%20Thank%20you!" target="_blank" class="inline-flex items-center gap-2 text-spa-primary font-semibold text-xs sm:text-sm pt-1 sm:pt-2 btn-hover">
+                        Book Now
+                        <span class="w-6 h-6 sm:w-7 sm:h-7 bg-spa-primary/10 rounded-full flex items-center justify-center group-hover:bg-spa-primary group-hover:text-white transition-colors">
+                            <i data-lucide="arrow-right" class="w-3 h-3 sm:w-3.5 sm:h-3.5"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="px-4 sm:px-8 md:px-12 section-breathe bg-spa-cream">
+    <div class="max-w-6xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-10 sm:gap-16 items-center">
+            <div class="relative">
+                <div class="rounded-[20px] sm:rounded-[24px] overflow-hidden shadow-2xl">
+                    <img src="https://i.pinimg.com/736x/29/00/4d/29004db58e7160ca85c0f1f93dfe949e.jpg" alt="About Us" class="w-full h-[320px] sm:h-[400px] lg:h-[480px] object-cover img-hover">
+                </div>
+                <div class="absolute -bottom-4 sm:-bottom-6 -right-2 sm:-right-6 bg-spa-primary text-white p-5 sm:p-8 rounded-[16px] sm:rounded-[20px] shadow-xl">
+                    <p class="text-3xl sm:text-5xl font-bold tracking-tight heading-editorial">8<span class="text-xl sm:text-3xl font-normal">+</span></p>
+                    <p class="text-[10px] sm:text-xs opacity-80 tracking-widest uppercase mt-1 sm:mt-2">Years of Excellence</p>
+                </div>
+                <div class="absolute -top-3 sm:-top-4 -left-3 sm:-left-4 w-16 h-16 sm:w-24 sm:h-24 border-2 border-spa-primary/20 rounded-[16px] sm:rounded-[20px] -z-10"></div>
+            </div>
+
+            <div class="space-y-4 sm:space-y-6 lg:pl-8">
+                <div class="space-y-2 sm:space-y-3">
+                    <span class="text-spa-primary text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase">About Lumière</span>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-spa-dark leading-tight heading-editorial">
+                        Where Wellness<br>Meets <span class="gradient-text">Luxury</span>
+                    </h2>
+                </div>
+
+                <div class="space-y-3 sm:space-y-4">
+                    <p class="text-spa-muted text-xs sm:text-sm leading-relaxed" style="line-height: 1.8;">Founded in 2016, Lumière Spa & Wellness has been Nairobi's sanctuary for those seeking authentic relaxation and rejuvenation. Our team of certified therapists combines traditional techniques with modern wellness science.</p>
+                    <p class="text-spa-muted text-xs sm:text-sm leading-relaxed" style="line-height: 1.8;">We believe self-care is not a luxury—it's a necessity. Every treatment is personalized, every product is premium, and every visit leaves you transformed.</p>
+                </div>
+
+                <div class="grid grid-cols-3 gap-4 sm:gap-8 pt-6 sm:pt-8 border-t border-spa-border/50">
+                    <div>
+                        <p class="text-2xl sm:text-4xl font-bold text-spa-primary heading-editorial">15<span class="text-base sm:text-xl">+</span></p>
+                        <p class="text-[10px] sm:text-xs text-spa-muted mt-1 sm:mt-2 tracking-widest uppercase">Expert Therapists</p>
+                    </div>
+                    <div>
+                        <p class="text-2xl sm:text-4xl font-bold text-spa-primary heading-editorial">50<span class="text-base sm:text-xl">+</span></p>
+                        <p class="text-[10px] sm:text-xs text-spa-muted mt-1 sm:mt-2 tracking-widest uppercase">Premium Services</p>
+                    </div>
+                    <div>
+                        <p class="text-2xl sm:text-4xl font-bold text-spa-primary heading-editorial">10k<span class="text-base sm:text-xl">+</span></p>
+                        <p class="text-[10px] sm:text-xs text-spa-muted mt-1 sm:mt-2 tracking-widest uppercase">Happy Clients</p>
+                    </div>
+                </div>
+
+                <div class="pt-4 sm:pt-6">
+                    <a href="#contact" class="inline-flex items-center gap-2 bg-spa-dark text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-xs sm:text-sm font-medium hover:bg-spa-primary transition-colors btn-hover">
+                        Book Your Experience
+                        <i data-lucide="arrow-right" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Gallery Section -->
+<section id="gallery" class="px-4 sm:px-8 md:px-12 section-breathe bg-white">
+    <div class="max-w-6xl mx-auto">
+        <div class="text-center max-w-xl mx-auto mb-10 sm:mb-16 space-y-3 sm:space-y-4">
+            <span class="text-spa-primary text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase">Gallery</span>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-spa-dark leading-tight heading-editorial">
+                Our <span class="gradient-text">Sanctuary</span>
+            </h2>
+            <p class="text-spa-muted text-xs sm:text-sm leading-relaxed" style="line-height: 1.8;">Step inside Lumière. Every corner is designed for your peace of mind.</p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4 auto-rows-[160px] sm:auto-rows-[200px] md:auto-rows-[220px]">
+            <div class="col-span-2 row-span-2 gallery-item shadow-lg group">
+                <img src="https://i.pinimg.com/736x/5f/d3/39/5fd33975181179ceb586da3333b7af96.jpg" alt="Spa Reception" class="img-hover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4 sm:p-6">
+                    <span class="text-white font-semibold text-xs sm:text-sm">Reception</span>
+                </div>
+            </div>
+            <div class="gallery-item shadow-lg group">
+                <img src="https://i.pinimg.com/736x/58/80/3b/58803b14afb7bb08016399f2bea4cf7c.jpg" alt="Treatment Room" class="img-hover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-3 sm:p-4">
+                    <span class="text-white font-semibold text-[10px] sm:text-xs">Treatment Room</span>
+                </div>
+            </div>
+            <div class="gallery-item shadow-lg group">
+                <img src="https://i.pinimg.com/736x/52/11/2c/52112cf2416ee326689789adfe554cb7.jpg" alt="Relaxation Area" class="img-hover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-3 sm:p-4">
+                    <span class="text-white font-semibold text-[10px] sm:text-xs">Relaxation</span>
+                </div>
+            </div>
+            <div class="gallery-item shadow-lg group">
+                <img src="https://i.pinimg.com/1200x/a8/a2/b6/a8a2b64958b9b57038bbd9c1c43fe5a6.jpg" alt="Products" class="img-hover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-3 sm:p-4">
+                    <span class="text-white font-semibold text-[10px] sm:text-xs">Products</span>
+                </div>
+            </div>
+            <div class="gallery-item shadow-lg group">
+                <img src="https://i.pinimg.com/1200x/25/a5/4b/25a54bd9f0bbb32608305d744d32c201.jpg" alt="Facial Room" class="img-hover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-3 sm:p-4">
+                    <span class="text-white font-semibold text-[10px] sm:text-xs">Facial Room</span>
+                </div>
+            </div>
+            <div class="col-span-2 gallery-item shadow-lg group">
+                <img src="https://i.pinimg.com/736x/3d/92/9e/3d929ee18e800df37d728dafc21d988f.jpg" alt="Massage Room" class="img-hover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4 sm:p-6">
+                    <span class="text-white font-semibold text-xs sm:text-sm">Massage Suite</span>
+                </div>
+            </div>
+            <div class="gallery-item shadow-lg group">
+                <img src="https://i.pinimg.com/1200x/e6/a5/67/e6a567f148b4ca65659c318796525484.jpg" alt="Waiting Area" class="img-hover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-3 sm:p-4">
+                    <span class="text-white font-semibold text-[10px] sm:text-xs">Lounge</span>
+                </div>
+            </div>
+            <div class="gallery-item shadow-lg group">
+                <img src="https://i.pinimg.com/736x/5f/64/85/5f648570c853f853d9e18e46a5220330.jpg" alt="Wellness Products" class="img-hover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-3 sm:p-4">
+                    <span class="text-white font-semibold text-[10px] sm:text-xs">Wellness</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section id="testimonials" class="section-breathe bg-spa-cream overflow-hidden">
+    <div class="px-4 sm:px-8 md:px-12 max-w-6xl mx-auto mb-10 sm:mb-16">
+        <div class="text-center max-w-xl mx-auto space-y-3 sm:space-y-4">
+            <span class="text-spa-primary text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase">Testimonials</span>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-spa-dark leading-tight heading-editorial">
+                Voices of <span class="gradient-text">Wellness</span>
+            </h2>
+            <p class="text-spa-muted text-xs sm:text-sm leading-relaxed" style="line-height: 1.8;">Real stories from our cherished clients who found their rhythm at Lumière.</p>
+        </div>
+    </div>
+
+    <!-- Row 1: Scrolls Left -->
+    <div class="mb-6 sm:mb-8 overflow-hidden relative">
+        <div class="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-spa-cream to-transparent z-10 pointer-events-none"></div>
+        <div class="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-spa-cream to-transparent z-10 pointer-events-none"></div>
+        <div class="marquee-track marquee-left w-max">
+            <!-- First set -->
+            <div class="flex gap-4 sm:gap-8">
+                <div class="testimonial-card rounded-[20px] sm:rounded-[24px] p-5 sm:p-8 w-[320px] sm:w-[420px] flex-shrink-0 space-y-3 sm:space-y-4">
+                    <div class="flex items-center gap-2 sm:gap-3">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80" alt="Client" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover ring-2 ring-spa-primary/20">
+                        <div>
+                            <p class="font-semibold text-xs sm:text-sm text-spa-dark">Amara Ochieng</p>
+                            <div class="flex text-spa-primary text-[10px] sm:text-xs gap-0.5">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="text-spa-muted text-xs sm:text-sm leading-relaxed" style="line-height: 1.8;">"The deep tissue massage at Lumière completely fixed my back pain. The therapist knew exactly where to apply pressure. I've been coming here monthly for two years now."</p>
+                </div>
+                <div class="testimonial-card rounded-[20px] sm:rounded-[24px] p-5 sm:p-8 w-[320px] sm:w-[420px] flex-shrink-0 space-y-3 sm:space-y-4">
+                    <div class="flex items-center gap-2 sm:gap-3">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="Client" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover ring-2 ring-spa-primary/20">
+                        <div>
+                            <p class="font-semibold text-xs sm:text-sm text-spa-dark">James Mwangi</p>
+                            <div class="flex text-spa-primary text-[10px] sm:text-xs gap-0.5">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="text-spa-muted text-xs sm:text-sm leading-relaxed" style="line-height: 1.8;">"Best spa experience in Nairobi. The ambiance is unmatched and the WhatsApp booking makes everything so convenient. Highly recommend the hot stone therapy!"</p>
+                </div>
+                <div class="testimonial-card rounded-[20px] sm:rounded-[24px] p-5 sm:p-8 w-[320px] sm:w-[420px] flex-shrink-0 space-y-3 sm:space-y-4">
+                    <div class="flex items-center gap-2 sm:gap-3">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=100&q=80" alt="Client" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover ring-2 ring-spa-primary/20">
+                        <div>
+                            <p class="font-semibold text-xs sm:text-sm text-spa-dark">Wanjiku Njoroge</p>
+                            <div class="flex text-spa-primary text-[10px] sm:text-xs gap-0.5">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="text-spa-muted text-xs sm:text-sm leading-relaxed" style="line-height: 1.8;">"The facial treatment here transformed my skin. I used to struggle with acne scars, but after 3 sessions, my confidence is back. Thank you Lumière team!"</p>
+                </div>
+            </div>
+            <!-- Duplicate set for seamless loop -->
+            <div class="flex gap-4 sm:gap-8">
+                <div class="testimonial-card rounded-[20px] sm:rounded-[24px] p-5 sm:p-8 w-[320px] sm:w-[420px] flex-shrink-0 space-y-3 sm:space-y-4">
+                    <div class="flex items-center gap-2 sm:gap-3">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80" alt="Client" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover ring-2 ring-spa-primary/20">
+                        <div>
+                            <p class="font-semibold text-xs sm:text-sm text-spa-dark">Amara Ochieng</p>
+                            <div class="flex text-spa-primary text-[10px] sm:text-xs gap-0.5">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="text-spa-muted text-xs sm:text-sm leading-relaxed" style="line-height: 1.8;">"The deep tissue massage at Lumière completely fixed my back pain. The therapist knew exactly where to apply pressure. I've been coming here monthly for two years now."</p>
+                </div>
+                <div class="testimonial-card rounded-[20px] sm:rounded-[24px] p-5 sm:p-8 w-[320px] sm:w-[420px] flex-shrink-0 space-y-3 sm:space-y-4">
+                    <div class="flex items-center gap-2 sm:gap-3">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="Client" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover ring-2 ring-spa-primary/20">
+                        <div>
+                            <p class="font-semibold text-xs sm:text-sm text-spa-dark">James Mwangi</p>
+                            <div class="flex text-spa-primary text-[10px] sm:text-xs gap-0.5">★★★★★</div>
+                        </div>
+                    </div
+                                         <p class="text-spa-muted text-xs sm:text-sm leading-relaxed" style="line-height: 1.8;">"Best spa experience in Nairobi. The ambiance is unmatched and the WhatsApp booking makes everything so convenient. Highly recommend the hot stone therapy!"</p>
+                </div>
+                <div class="testimonial-card rounded-[20px] sm:rounded-[24px] p-5 sm:p-8 w-[320px] sm:w-[420px] flex-shrink-0 space-y-3 sm:space-y-4">
+                    <div class="flex items-center gap-2 sm:gap-3">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=100&q=80" alt="Client" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover ring-2 ring-spa-primary/20">
+                        <div>
+                            <p class="font-semibold text-xs sm:text-sm text-spa-dark">Wanjiku Njoroge</p>
+                            <div class="flex text-spa-primary text-[10px] sm:text-xs gap-0.5">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="text-spa-muted text-xs sm:text-sm leading-relaxed" style="line-height: 1.8;">"The facial treatment here transformed my skin. I used to struggle with acne scars, but after 3 sessions, my confidence is back. Thank you Lumière team!"</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Row 2: Scrolls Right -->
+    <div class="overflow-hidden relative">
+        <div class="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-spa-cream to-transparent z-10 pointer-events-none"></div>
+        <div class="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-spa-cream to-transparent z-10 pointer-events-none"></div>
+        <div class="marquee-track marquee-right w-max">
+            <!-- First set -->
+            <div class="flex gap-4 sm:gap-8">
+                <div class="testimonial-card rounded-[20px] sm:rounded-[24px] p-5 sm:p-8 w-[320px] sm:w-[420px] flex-shrink-0 space-y-3 sm:space-y-4">
+                    <div class="flex items-center gap-2 sm:gap-3">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Client" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover ring-2 ring-spa-primary/20">
+                        <div>
+                            <p class="font-semibold text-xs sm:text-sm text-spa-dark">Fatima Hassan</p>
+                            <div class="flex text-spa-primary text-[10px] sm:text-xs gap-0.5">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="text-spa-muted text-xs sm:text-sm leading-relaxed" style="line-height: 1.8;">"I booked a couples massage for our anniversary and it was magical. The private suite, the aromatherapy, the attention to detail—everything was perfect."</p>
+                </div>
+                <div class="testimonial-card rounded-[20px] sm:rounded-[24px] p-5 sm:p-8 w-[320px] sm:w-[420px] flex-shrink-0 space-y-3 sm:space-y-4">
+                    <div class="flex items-center gap-2 sm:gap-3">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80" alt="Client" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover ring-2 ring-spa-primary/20">
+                        <div>
+                            <p class="font-semibold text-xs sm:text-sm text-spa-dark">David Kimani</p>
+                            <div class="flex text-spa-primary text-[10px] sm:text-xs gap-0.5">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="text-spa-muted text-xs sm:text-sm leading-relaxed" style="line-height: 1.8;">"As a marathon runner, I need regular muscle recovery. The sports massage here is professional and effective. The online booking via WhatsApp is a game changer."</p>
+                </div>
+                <div class="testimonial-card rounded-[20px] sm:rounded-[24px] p-5 sm:p-8 w-[320px] sm:w-[420px] flex-shrink-0 space-y-3 sm:space-y-4">
+                    <div class="flex items-center gap-2 sm:gap-3">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80" alt="Client" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover ring-2 ring-spa-primary/20">
+                        <div>
+                            <p class="font-semibold text-xs sm:text-sm text-spa-dark">Grace Mutua</p>
+                            <div class="flex text-spa-primary text-[10px] sm:text-xs gap-0.5">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="text-spa-muted text-xs sm:text-sm leading-relaxed" style="line-height: 1.8;">"The body scrub left my skin feeling brand new. I love how they use natural products. Lumière is now my monthly self-care ritual. Worth every shilling!"</p>
+                </div>
+            </div>
+            <!-- Duplicate set for seamless loop -->
+            <div class="flex gap-4 sm:gap-8">
+                <div class="testimonial-card rounded-[20px] sm:rounded-[24px] p-5 sm:p-8 w-[320px] sm:w-[420px] flex-shrink-0 space-y-3 sm:space-y-4">
+                    <div class="flex items-center gap-2 sm:gap-3">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Client" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover ring-2 ring-spa-primary/20">
+                        <div>
+                            <p class="font-semibold text-xs sm:text-sm text-spa-dark">Fatima Hassan</p>
+                            <div class="flex text-spa-primary text-[10px] sm:text-xs gap-0.5">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="text-spa-muted text-xs sm:text-sm leading-relaxed" style="line-height: 1.8;">"I booked a couples massage for our anniversary and it was magical. The private suite, the aromatherapy, the attention to detail—everything was perfect."</p>
+                </div>
+                <div class="testimonial-card rounded-[20px] sm:rounded-[24px] p-5 sm:p-8 w-[320px] sm:w-[420px] flex-shrink-0 space-y-3 sm:space-y-4">
+                    <div class="flex items-center gap-2 sm:gap-3">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80" alt="Client" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover ring-2 ring-spa-primary/20">
+                        <div>
+                            <p class="font-semibold text-xs sm:text-sm text-spa-dark">David Kimani</p>
+                            <div class="flex text-spa-primary text-[10px] sm:text-xs gap-0.5">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="text-spa-muted text-xs sm:text-sm leading-relaxed" style="line-height: 1.8;">"As a marathon runner, I need regular muscle recovery. The sports massage here is professional and effective. The online booking via WhatsApp is a game changer."</p>
+                </div>
+                <div class="testimonial-card rounded-[20px] sm:rounded-[24px] p-5 sm:p-8 w-[320px] sm:w-[420px] flex-shrink-0 space-y-3 sm:space-y-4">
+                    <div class="flex items-center gap-2 sm:gap-3">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80" alt="Client" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover ring-2 ring-spa-primary/20">
+                        <div>
+                            <p class="font-semibold text-xs sm:text-sm text-spa-dark">Grace Mutua</p>
+                            <div class="flex text-spa-primary text-[10px] sm:text-xs gap-0.5">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="text-spa-muted text-xs sm:text-sm leading-relaxed" style="line-height: 1.8;">"The body scrub left my skin feeling brand new. I love how they use natural products. Lumière is now my monthly self-care ritual. Worth every shilling!"</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="px-4 sm:px-8 md:px-12 section-breathe bg-white">
+    <div class="max-w-6xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-10 sm:gap-16">
+            <div class="space-y-6 sm:space-y-8">
+                <div class="space-y-3 sm:space-y-4">
+                    <span class="text-spa-primary text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase">Get in Touch</span>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-spa-dark leading-tight heading-editorial">
+                        Book Your<br><span class="gradient-text">Experience</span>
+                    </h2>
+                    <p class="text-spa-muted text-xs sm:text-sm leading-relaxed max-w-md" style="line-height: 1.8;">Fill out the form below and we'll send your booking details directly to WhatsApp. Our team responds within minutes.</p>
+                </div>
+
+                <form id="bookingForm" class="space-y-4 sm:space-y-6">
+                    <div class="grid sm:grid-cols-2 gap-4 sm:gap-6">
+                        <div class="space-y-1.5 sm:space-y-2">
+                            <label class="block text-[10px] sm:text-xs font-medium text-spa-muted tracking-widest uppercase">Full Name</label>
+                            <input type="text" id="name" required class="w-full px-4 sm:px-5 py-3 sm:py-4 bg-spa-cream rounded-2xl border-0 focus:ring-2 focus:ring-spa-primary outline-none text-spa-dark placeholder:text-spa-muted/50 text-xs sm:text-sm form-input" placeholder="Your full name">
+                        </div>
+                        <div class="space-y-1.5 sm:space-y-2">
+                            <label class="block text-[10px] sm:text-xs font-medium text-spa-muted tracking-widest uppercase">Phone Number</label>
+                            <input type="tel" id="phone" required class="w-full px-4 sm:px-5 py-3 sm:py-4 bg-spa-cream rounded-2xl border-0 focus:ring-2 focus:ring-spa-primary outline-none text-spa-dark placeholder:text-spa-muted/50 text-xs sm:text-sm form-input" placeholder="e.g., 0712 345 678">
+                        </div>
+                    </div>
+
+                    <div class="space-y-1.5 sm:space-y-2">
+                        <label class="block text-[10px] sm:text-xs font-medium text-spa-muted tracking-widest uppercase">Select Service</label>
+                        <div class="relative">
+                            <select id="service" required class="w-full px-4 sm:px-5 py-3 sm:py-4 bg-spa-cream rounded-2xl border-0 focus:ring-2 focus:ring-spa-primary outline-none text-spa-dark cursor-pointer text-xs sm:text-sm form-input appearance-none">
+                                <option value="">Choose a service...</option>
+                                <option value="Swedish Massage">Swedish Massage — KSh 3,500</option>
+                                <option value="Deep Tissue Therapy">Deep Tissue Therapy — KSh 4,500</option>
+                                <option value="Hot Stone Therapy">Hot Stone Therapy — KSh 5,000</option>
+                                <option value="Luxury Facial">Luxury Facial — KSh 3,800</option>
+                                <option value="Body Scrub">Exfoliating Body Scrub — KSh 2,800</option>
+                                <option value="Aromatherapy">Aromatherapy Session — KSh 4,000</option>
+                            </select>
+                            <div class="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 pointer-events-none text-spa-muted">
+                                <i data-lucide="chevron-down" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-1.5 sm:space-y-2">
+                        <label class="block text-[10px] sm:text-xs font-medium text-spa-muted tracking-widest uppercase">Preferred Date</label>
+                        <input type="date" id="date" required class="w-full px-4 sm:px-5 py-3 sm:py-4 bg-spa-cream rounded-2xl border-0 focus:ring-2 focus:ring-spa-primary outline-none text-spa-dark text-xs sm:text-sm form-input">
+                    </div>
+
+                    <div class="space-y-1.5 sm:space-y-2">
+                        <label class="block text-[10px] sm:text-xs font-medium text-spa-muted tracking-widest uppercase">Special Requests</label>
+                        <textarea id="message" rows="3" class="w-full px-4 sm:px-5 py-3 sm:py-4 bg-spa-cream rounded-2xl border-0 focus:ring-2 focus:ring-spa-primary outline-none text-spa-dark resize-none placeholder:text-spa-muted/50 text-xs sm:text-sm form-input" placeholder="Any allergies, preferences, or questions..."></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-spa-dark text-white py-3.5 sm:py-4 rounded-full font-semibold tracking-wide hover:bg-spa-primary transition-colors flex items-center justify-center gap-2 text-xs sm:text-sm shadow-lg btn-hover">
+                        <i data-lucide="send" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
+                        Send Booking Request via WhatsApp
+                    </button>
+                </form>
+
+                <div class="pt-4 sm:pt-6 border-t border-spa-border/30 flex flex-wrap gap-4 sm:gap-6">
+                    <a href="tel:+254712345678" class="flex items-center gap-2 sm:gap-3 text-spa-muted hover:text-spa-primary transition-colors text-xs sm:text-sm btn-hover">
+                        <span class="w-9 h-9 sm:w-10 sm:h-10 bg-spa-cream rounded-full flex items-center justify-center"><i data-lucide="phone" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i></span>
+                        <span>+254 712 345 678</span>
+                    </a>
+                    <a href="mailto:hello@lumiere-spa.co.ke" class="flex items-center gap-2 sm:gap-3 text-spa-muted hover:text-spa-primary transition-colors text-xs sm:text-sm btn-hover">
+                        <span class="w-9 h-9 sm:w-10 sm:h-10 bg-spa-cream rounded-full flex items-center justify-center"><i data-lucide="mail" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i></span>
+                        <span>hello@lumiere-spa.co.ke</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="space-y-4 sm:space-y-6">
+                <div class="bg-spa-cream rounded-[20px] sm:rounded-[24px] overflow-hidden shadow-lg h-[280px] sm:h-[360px]">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d255281.1989180689!2d36.68258743749999!3d-1.302861397286487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1172d84d49a7%3A0xf7cf0254b297924c!2sNairobi%2C%20Kenya!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" class="w-full h-full" title="Lumière Spa Location"></iframe>
+                </div>
+                <div class="bg-spa-cream rounded-[20px] sm:rounded-[24px] p-4 sm:p-6 flex items-start gap-3 sm:gap-4">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-spa-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="map-pin" class="w-4 h-4 sm:w-5 sm:h-5 text-spa-primary"></i>
+                    </div>
+                    <div class="space-y-0.5 sm:space-y-1">
+                        <h4 class="font-semibold text-spa-dark text-xs sm:text-sm">Visit Us</h4>
+                        <p class="text-xs sm:text-sm text-spa-muted leading-relaxed" style="line-height: 1.8;">Lumière Spa & Wellness<br>123 Wellness Avenue, Kilimani<br>Nairobi, Kenya</p>
+                        <p class="text-[10px] sm:text-xs text-spa-muted/60 tracking-wide pt-0.5 sm:pt-1">Open Daily: 9:00 AM — 9:00 PM</p>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-spa-primary to-spa-primaryDark rounded-[20px] sm:rounded-[24px] p-6 sm:p-8 text-white relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-white/10 rounded-full -mr-12 sm:-mr-16 -mt-12 sm:-mt-16"></div>
+                    <div class="relative z-10">
+                        <h4 class="font-bold text-base sm:text-lg mb-1.5 sm:mb-2">First Visit Special</h4>
+                        <p class="text-white/80 text-xs sm:text-sm mb-3 sm:mb-4 leading-relaxed">Get 20% off your first treatment when you book through WhatsApp today.</p>
+                        <div class="flex items-center gap-2 text-xs sm:text-sm font-semibold">
+                            <span>Use code:</span>
+                            <span class="bg-white/20 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full">LUMIERE20</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-spa-dark text-white py-14 sm:py-20 px-4 sm:px-8 md:px-12 relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(184,149,107,0.1)_0%,_transparent_50%)]"></div>
+    <div class="max-w-6xl mx-auto relative z-10">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-12 sm:mb-16">
+            <div class="space-y-4 sm:space-y-6 sm:col-span-2 lg:col-span-1">
+                <div class="flex items-center gap-2">
+                    <div class="w-9 h-9 sm:w-10 sm:h-10 bg-spa-primary rounded-xl flex items-center justify-center text-white"><i data-lucide="sparkles" class="w-4 h-4 sm:w-5 sm:h-5"></i></div>
+                    <span class="font-bold text-lg sm:text-xl tracking-tight">Lumière</span>
+                </div>
+                <p class="text-white/40 text-xs sm:text-sm leading-relaxed" style="line-height: 1.8;">Nairobi's premier destination for luxury spa treatments and holistic wellness. Transform your body, elevate your spirit.</p>
+                <div class="flex gap-2 sm:gap-3">
+                    <a href="https://instagram.com/lumiere.spa" target="_blank" class="w-9 h-9 sm:w-10 sm:h-10 border border-white/10 rounded-full flex items-center justify-center hover:bg-spa-primary hover:border-spa-primary transition-colors btn-hover">
+                        <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <a href="https://tiktok.com/@lumiere.spa" target="_blank" class="w-9 h-9 sm:w-10 sm:h-10 border border-white/10 rounded-full flex items-center justify-center hover:bg-spa-primary hover:border-spa-primary transition-colors btn-hover">
+                        <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-6.95a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                        </svg>
+                    </a>
+                    <a href="https://facebook.com/lumiere.spa" target="_blank" class="w-9 h-9 sm:w-10 sm:h-10 border border-white/10 rounded-full flex items-center justify-center hover:bg-spa-primary hover:border-spa-primary transition-colors btn-hover">
+                        <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                    <a href="https://wa.me/254712345678?text=Hello%20Lumière%20Spa%20%26%20Wellness!%20I%20would%20like%20to%20get%20in%20touch.%20Thank%20you!" target="_blank" class="w-9 h-9 sm:w-10 sm:h-10 border border-white/10 rounded-full flex items-center justify-center hover:bg-[#25D366] hover:border-[#25D366] transition-colors btn-hover">
+                        <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="space-y-4 sm:space-y-6">
+                <h4 class="text-[10px] sm:text-xs tracking-[0.2em] uppercase text-spa-primary font-semibold">Quick Links</h4>
+                <ul class="space-y-3 sm:space-y-4">
+                    <li><a href="#about" class="text-white/40 hover:text-white transition-colors text-xs sm:text-sm btn-hover inline-block">About Us</a></li>
+                    <li><a href="#services" class="text-white/40 hover:text-white transition-colors text-xs sm:text-sm btn-hover inline-block">Our Services</a></li>
+                    <li><a href="#gallery" class="text-white/40 hover:text-white transition-colors text-xs sm:text-sm btn-hover inline-block">Gallery</a></li>
+                    <li><a href="#testimonials" class="text-white/40 hover:text-white transition-colors text-xs sm:text-sm btn-hover inline-block">Reviews</a></li>
+                </ul>
+            </div>
+            <div class="space-y-4 sm:space-y-6">
+                <h4 class="text-[10px] sm:text-xs tracking-[0.2em] uppercase text-spa-primary font-semibold">Popular Services</h4>
+                <ul class="space-y-3 sm:space-y-4">
+                    <li><a href="https://wa.me/254712345678?text=Hello%20Lumière%20Spa!%20I%20would%20like%20to%20book%20a%20Swedish%20Massage.%20Please%20let%20me%20know%20your%20availability.%20Thank%20you!" target="_blank" class="text-white/40 hover:text-white transition-colors text-xs sm:text-sm btn-hover inline-block">Swedish Massage</a></li>
+                    <li><a href="https://wa.me/254712345678?text=Hello%20Lumière%20Spa!%20I%20would%20like%20to%20book%20a%20Deep%20Tissue%20Therapy%20session.%20Please%20let%20me%20know%20your%20availability.%20Thank%20you!" target="_blank" class="text-white/40 hover:text-white transition-colors text-xs sm:text-sm btn-hover inline-block">Deep Tissue Therapy</a></li>
+                    <li><a href="https://wa.me/254712345678?text=Hello%20Lumière%20Spa!%20I%20would%20like%20to%20book%20a%20Hot%20Stone%20Therapy%20session.%20Please%20let%20me%20know%20your%20availability.%20Thank%20you!" target="_blank" class="text-white/40 hover:text-white transition-colors text-xs sm:text-sm btn-hover inline-block">Hot Stone Therapy</a></li>
+                    <li><a href="https://wa.me/254712345678?text=Hello%20Lumière%20Spa!%20I%20would%20like%20to%20book%20a%20Luxury%20Facial.%20Please%20let%20me%20know%20your%20availability.%20Thank%20you!" target="_blank" class="text-white/40 hover:text-white transition-colors text-xs sm:text-sm btn-hover inline-block">Luxury Facial</a></li>
+                </ul>
+            </div>
+            <div class="space-y-4 sm:space-y-6">
+                <h4 class="text-[10px] sm:text-xs tracking-[0.2em] uppercase text-spa-primary font-semibold">Contact</h4>
+                <ul class="space-y-3 sm:space-y-4">
+                    <li class="flex items-start gap-2 sm:gap-3 text-white/40 text-xs sm:text-sm"><i data-lucide="map-pin" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-spa-primary mt-0.5 flex-shrink-0"></i><span>123 Wellness Avenue, Kilimani<br>Nairobi, Kenya</span></li>
+                    <li class="flex items-center gap-2 sm:gap-3 text-white/40 text-xs sm:text-sm"><i data-lucide="phone" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-spa-primary flex-shrink-0"></i><span>+254 712 345 678</span></li>
+                    <li class="flex items-center gap-2 sm:gap-3 text-white/40 text-xs sm:text-sm"><i data-lucide="clock" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-spa-primary flex-shrink-0"></i><span>Daily: 9:00 AM — 9:00 PM</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-white/5 pt-6 sm:pt-8 flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4">
+            <p class="text-white/20 text-[10px] sm:text-xs">© 2024 Lumière Spa & Wellness. All rights reserved.</p>
+            <div class="flex gap-4 sm:gap-6">
+                <a href="#" class="text-white/20 hover:text-white/50 transition-colors text-[10px] sm:text-xs btn-hover">Privacy Policy</a>
+                <a href="#" class="text-white/20 hover:text-white/50 transition-colors text-[10px] sm:text-xs btn-hover">Terms of Service</a>
+            </div>
+        </div>
+        <div class="pt-6 sm:pt-8 mt-6 sm:mt-8 flex justify-center border-t border-white/5">
+            <p class="text-white/20 text-[10px] sm:text-xs tracking-widest uppercase font-medium">
+                Engineered by <span class="text-spa-primary">SalonFlow Studio</span>
+            </p>
+        </div>
+    </div>
+</footer>
+
+<!-- JavaScript -->
+<script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = mobileMenuBtn.querySelector('.menu-icon');
+    const closeIcon = mobileMenuBtn.querySelector('.close-icon');
+    let isMenuOpen = false;
+
+    function toggleMenu() {
+        isMenuOpen = !isMenuOpen;
+        if (isMenuOpen) {
+            mobileMenu.classList.add('open');
+            menuIcon.classList.add('hidden');
+            closeIcon.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        } else {
+            mobileMenu.classList.remove('open');
+            menuIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+    }
+
+    mobileMenuBtn.addEventListener('click', toggleMenu);
+
+    // Close menu when clicking links
+    mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (isMenuOpen) toggleMenu();
+        });
+    });
+
+    // Hero Carousel
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.carousel-dot');
+    let currentSlide = 0;
+    let slideInterval;
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === index);
+        });
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
+        currentSlide = index;
+    }
+
+    function nextSlide() {
+        const next = (currentSlide + 1) % slides.length;
+        showSlide(next);
+    }
+
+    function startCarousel() {
+        slideInterval = setInterval(nextSlide, 6000);
+    }
+
+    function stopCarousel() {
+        clearInterval(slideInterval);
+    }
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            stopCarousel();
+            showSlide(index);
+            startCarousel();
+        });
+    });
+
+    startCarousel();
+
+    // Scroll-based Navigation Highlighting
+    const sections = document.querySelectorAll('section[id]');
+    const navPills = document.querySelectorAll('.nav-pill');
+
+    const observerOptions = {
+        root: null,
+        rootMargin: '-40% 0px -40% 0px',
+        threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const sectionId = entry.target.getAttribute('id');
+                navPills.forEach(pill => {
+                    if (pill.dataset.section === sectionId) {
+                        pill.classList.add('active');
+                        pill.classList.remove('text-spa-muted');
+                    } else {
+                        pill.classList.remove('active');
+                        pill.classList.add('text-spa-muted');
+                    }
+                });
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach(section => observer.observe(section));
+
+    // Booking Form Handler
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('name').value;
+        const phone = document.getElementById('phone').value;
+        const service = document.getElementById('service').value;
+        const date = document.getElementById('date').value;
+        const message = document.getElementById('message').value;
+        const whatsappMessage = `*New Booking Request - Lumière Spa*%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Service:* ${service}%0A*Preferred Date:* ${date}%0A*Special Requests:* ${message || 'None'}%0A%0APlease confirm my appointment. Thank you!`;
+        window.open(`https://wa.me/254712345678?text=${whatsappMessage}`, '_blank');
+    });
+
+    // Smooth Scroll for Anchor Links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                const offsetTop = target.offsetTop - 80;
+                window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+            }
+        });
+    });
+
+    // Set minimum date for booking form
+    document.getElementById('date').setAttribute('min', new Date().toISOString().split('T')[0]);
+
+    // Back to Top Button
+    const backToTopBtn = document.getElementById('backToTop');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 500) {
+            backToTopBtn.classList.add('visible');
+        } else {
+            backToTopBtn.classList.remove('visible');
+        }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
+</body>
+</html>
